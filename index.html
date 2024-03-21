@@ -151,7 +151,21 @@
             box-sizing: border-box;
             background-color: black;
         }
-     
+        .back-btn {
+    position: fixed;
+    bottom: 20px; /* Position the button at the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    background-color: #ccc;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+  }
+  .back-btn:hover {
+    background-color: #bbb;
+  }
 
       
     </style>
@@ -244,7 +258,7 @@
             <p>Hazardous (AQI 301-500; PM<sub>2.5</sub>: 250.5-500.4 µg/m<sup>3</sup>)<span style="margin-left:25.6vw;">Avoid all physical activities outdoors</span><span style="margin-left:7.3vw;">35% (30-40%)</span></p></p>
             <p>Wildfires and severe events (e.g., "hazardous" AQI levels)<span style="margin-left:24vw;">Remain indoors/keep activities low</span><span style="margin-left:7.8vw;">50% (40-60%)</span></p></p>
             <p><b>4. Number needed to treat per day to prevent 1 ASCVD event (fatal or nonfatal MI or stroke)</b></p>
-
+            <button class="back-btn" onclick="goBack()">Back</button>
     </div>
     </div>
     
@@ -282,6 +296,10 @@
         document.addEventListener('DOMContentLoaded', function () {
             calculateNNT();
         });
+
+        function goBack() {
+  window.history.back(); // Go back to the previous page
+}
     </script>
 </body>
 </html>

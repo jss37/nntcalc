@@ -281,7 +281,7 @@
             document.getElementById('eventRateControlDisplay').innerText = c;
 
             // Check if the inputs are valid
-            if (isNaN(a) || isNaN(b) || isNaN(c) || a < 0 || b < 13 || b > 500 || c < 15 || c > 50) {
+            if (isNaN(a) || isNaN(b) || isNaN(c) || a < 0 || b < 10 || b > 500 || c < 15 || c > 50) {
                 document.getElementById('nntResult').innerHTML = "Invalid Input";
             } else {
                 // Calculate X, Y, Z, and NNT

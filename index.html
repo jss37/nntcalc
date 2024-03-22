@@ -39,7 +39,7 @@
         }
         img {
             position: absolute;
-            bottom: 2vw;
+            bottom: 5vw;
             right:5vh;
             height:10vw;
 
@@ -153,7 +153,7 @@
         }
         .back-btn {
     position: fixed;
-    bottom: 20px; /* Position the button at the bottom */
+    bottom: 220px; /* Position the button at the bottom */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
     background-color: #ccc;
@@ -173,7 +173,7 @@
 <body>
     <div id="container">
         <header style="background-color: white;background-size:20px 20px;height:48px">
-        <span style="float:left;"><u><b>NUMBER NECESSARY TO TREAT (NNT) Per Day to Prevent One ASCVD EVENT CALCULATOR</u></b></span>
+        <span style="float:left;"><u><b>NUMBER NECESSARY TO TREAT (NNT) Per Day to Prevent One EVENT CALCULATOR</u></b></span>
 <br>
 <div style="border: 2px solid black; color:#424043; font-size: larger;">
         <span><h1><b>[Brook et al., Air Quality Index Guidance]</b><span style="margin-left:45vw;"><b>Estimated Range</b></span></h1>
@@ -221,7 +221,7 @@
                     <div id="calculator">
                         <div class="sliderContainer" style="background-color:#006766;color:white;height:95px;padding-top: 35px; ">
                             <label class="sliderLabel" for="patientsWithEvent" title = "Use Arrow Keys For Precise Selection";>
-                                <span>1</span>
+                                <span>0.5</span>
                                 <input type="range" id="patientsWithEvent" class="slider" min="1" max="20" step="1" oninput="calculateNNT()">
                                 <span>20%</span>
                             </label>
@@ -229,9 +229,9 @@
 
                         <div class="sliderContainer" style="background-color:#c6e0b3;height:95px;padding-top: 35px; padding-right:30px">
                             <label class="sliderLabel" for="totalPatientsTreatment" style="color:black;" title = "Use Arrow Keys For Precise Selection">
-                                <span>13</span>
+                                <span>10</span>
                                 <input type="range" id="totalPatientsTreatment" class="slider" min="13" max="500" step="1" oninput="calculateNNT()" style="background-color: black;">
-                                <span>500<span style="font-size:1vw;">µg/m<sup>3</sup></span> </span>
+                                <span>225.5<span style="font-size:1vw;">µg/m<sup>3</sup></span> </span>
                             </label>
                         </div>
 
@@ -253,16 +253,15 @@
             <p><b>2. To convert PM<sub>2.5</sub> to AQI visit EPA airnow website (must be >12 µg/m<sup>3</sup>):</b></p>
             <p><a href="https://www.airnow.gov/aqi/aqi-calculator-concentration/">https://www.airnow.gov/aqi/aqi-calculator-concentration/</a></p>
             <p><b>3. AQI activity guidelines for the general adult population (without heart or lung disease):</b><span style="margin-left:11.5vw;"><b>Recommendation</b></span><span style="margin-left:13vw;"><b>Estimated exposure reduction (range)</b></span></p>
-            <p>Unhealthy (AQI 151-200; PM<sub>2.5</sub>: 55.5 – 150.4 µg/m<sup>3</sup>)<span style="margin-left:25.7vw;">↓ Prolonged/heavy exertion outdoors</span><span style="margin-left:7vw;">15% (10-20%)</span></p>
-            <p>Very unhealthy (AQI 201-300; PM<sub>2.5</sub>: 150.5 – 250.4 µg/m<sup>3</sup>)<span style="margin-left:23.7vw;">Avoid prolonged/heavy exertion outdoors</span><span style="margin-left:5.6vw;">25% (20-30%)</span><a href="https://phoenix.wayne.edu/" target="_blank"><img src="https://i.ibb.co/tcqksyV/phxinhouse.png"></a></p>
-            <p>Hazardous (AQI 301-500; PM<sub>2.5</sub>: 250.5-500.4 µg/m<sup>3</sup>)<span style="margin-left:25.6vw;">Avoid all physical activities outdoors</span><span style="margin-left:7.3vw;">35% (30-40%)</span></p></p>
+            <p>Unhealthy (AQI 151-200; PM<sub>2.5</sub>: 55.5 – 125.4 µg/m<sup>3</sup>)<span style="margin-left:25.7vw;">↓ Prolonged/heavy exertion outdoors</span><span style="margin-left:7vw;">15% (10-20%)</span></p>
+            <p>Very unhealthy (AQI 201-300; PM<sub>2.5</sub>: 125.5 – 225.4  µg/m<sup>3</sup>)<span style="margin-left:23.7vw;">Avoid prolonged/heavy exertion outdoors</span><span style="margin-left:5.6vw;">25% (20-30%)</span><a href="https://phoenix.wayne.edu/" target="_blank"><img src="https://i.ibb.co/tcqksyV/phxinhouse.png"></a></p>
+            <p>Hazardous (AQI 301-500; PM<sub>2.5</sub>: 225.5+  µg/m<sup>3</sup>)<span style="margin-left:25.6vw;">Avoid all physical activities outdoors</span><span style="margin-left:7.3vw;">35% (30-40%)</span></p></p>
             <p>Wildfires and severe events (e.g., "hazardous" AQI levels)<span style="margin-left:24vw;">Remain indoors/keep activities low</span><span style="margin-left:7.8vw;">50% (40-60%)</span></p></p>
             <p><b>4. Number needed to treat per day to prevent 1 ASCVD event (fatal or nonfatal MI or stroke)</b></p>
-            <p><b>5. These are the new PM2.5 AQI thresholds and activity recommendations</b></p>
-
-            
+            <p><b>5. On February 7, 2024, the U.S. Environmental Protection Agency (EPA) announced a final rule to strengthen the nation’s National Ambient Air Quality Standards (NAAQS) for fine particle pollution, also known as fine particulate matter (PM<sub>2.5</sub>) or soot.  </b></p>
+            <p><b>EPA is setting the level of the primary (health-based) annual PM<sub>2.5</sub> standard at 9.0 micrograms per cubic meter µg/m<sup>3</sup> to provide increased public health protection, consistent with the available health science.</b></p>
+            <button class="back-btn" onclick="goBack()"><b>BACK</b></button>
     </div>
-        <button class="back-btn" onclick="goBack()">Back</button>
     </div>
     
     <script>
@@ -287,7 +286,7 @@
             } else {
                 // Calculate X, Y, Z, and NNT
                 var X = (a / 1000 / 365 * 1000000);
-                var Y = (b - 12) / 1000 * X;
+                var Y = (b - 9) / 1000 * X;
                 var Z = Y * (c / 100);
                 var nnt = Math.round(1 / Z * 1000000);
 

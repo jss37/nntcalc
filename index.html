@@ -25,7 +25,7 @@
             font-size: smaller;
             margin-left: 0;
             margin-bottom: 5px;
-            line-height: .5;
+            line-height: 1;
             font-size: .75vw;
 
         }
@@ -36,6 +36,15 @@
             margin-bottom: 10px;
             line-height: .1;
 
+        }
+        li {
+            font-size: .75vw;
+            padding-left:1vw;
+        }
+        ul {
+            text-indent: 0;
+            margin-left:0;
+            padding-left:1vw;
         }
         img {
             position: absolute;
@@ -77,13 +86,15 @@
 
         .instructionRow {
             margin-bottom: 0px;
+            display: flex;
         }
 
         .instructionLabel {
-            font-size: 2vw;
+            font-size: 1vw;
             font-weight: bold;
             width: 100%;
-            text-align: right;
+            text-align: left;
+           
           
         }
 
@@ -92,6 +103,7 @@
             color: black;
             padding-left: 4vw;
             padding-right: 4vw;
+            flex: 1;
         }
 
         .sliderLabel {
@@ -104,12 +116,12 @@
         }
 
         .slider {
-            width: 15vw; 
-            height: 10px; 
+            width: 33%; 
             -webkit-appearance: none;
             position: absolute;
-            left:72%;
-            margin-top: 10px;
+            left:14vw;
+            margin-top: 1.8vw;
+            height:.3vw;
         }
             
         .slider::-webkit-slider-thumb {
@@ -137,13 +149,19 @@
             height: 25px; 
         }
 
+        .Range {
+            font-size: 1px;
+            text-align: center;
+            height: 25px; 
+        }
+
         
         #numberDisplays {
             font-size: 30pt;
         }
 
         #nntResult {
-            padding: 10px;
+            padding: 1px;
             font-size: 2.5vw;
             color: white;
             width: 100%;
@@ -151,9 +169,9 @@
             box-sizing: border-box;
             background-color: black;
         }
-       .back-btn {
+        .back-btn {
     position: fixed;
-    bottom: 180px; /* Position the button at the bottom */
+    bottom: 220px; /* Position the button at the bottom */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
     background-color: #fff2cd ;
@@ -178,90 +196,112 @@
         <span style="float:left;"><u><b>NUMBER NECESSARY TO TREAT (NNT) Per Day to Prevent One EVENT CALCULATOR</u></b></span>
 <br>
 <div style="border: 2px solid black; color:#424043; font-size: larger;">
-        <span><h1><b>[Brook et al., Air Quality Index Guidance]</b><span style="margin-left:45vw;"><b>Estimated Range</b></span></h1>
+        <span><h1><b>[Brook et al., Air Quality Index Guidance]</b><span style="margin-left:23vw;">#</span><span style="margin-left:17vw;"><b>Estimated Range (unit)</b></span></h1>
     </div>
     </header>
         <table>
         <tr style="background-color:lightgray">
                 <td style="width:50%;">
                     <div id="instructions">
-                        <div class="instructionRow" style="background-color:#006766;color:white;height:85px;width:100%;padding-top:10px;">
-                            <span class="instructionLabel" style="font-size: 1.5vw;"><u>STEP 1.</u> Enter 10-year ASCVD risk<sup>1</sup></span><br>
-                            <span class="instructionLabel" style="font-size: 1vw;color:gold"><em><span style="color:white;">(</span>enter a #,  not a proportion; e.g., '10' correctly represents '10%', not '0.10' or '10%'<span style="color:white;">):</em></span></span>
+                        <div class="instructionRow" style="background-color:#006766;color:white;height:55px;width:100%;padding-top:10px;">
+                            <span class="instructionLabel" style="font-size: 1vw;"><u>STEP 1.</u> Enter 10-year ASCVD risk<sup>1</sup></span><br>
+                            
                             <span id="patientsWithEventValue" class="inputNumberDisplay" style="color:#006766;">0</span>
+                            <div class="sliderContainer">
+                                <label class="sliderLabel" for="patientsWithEvent" title="Use Arrow Keys For Precise Selection";>
+                                    
+                                    <input type="range" id="patientsWithEvent" class="slider" min="0.5" max="20" step=".5" oninput="calculateNNT()">
+                                    
+                                </label>
+                            </div>
                         </div>
-                        <div class="instructionRow" style="background-color:#c6e0b3;height:85px;width:100%;padding-top:10px;">
-                            <span class="instructionLabel"style="font-size: 1.5vw;" ><u>STEP 2.</u> Enter PM<sub>2.5</sub> concentration to convert to AQI<sup>2</sup></span><br>
-                            <span class="instructionLabel" style="font-size: 1vw;"><em>(enter a # to convert to Air Quality Index; e.g., '117' ):</em></span>
+                        <div class="instructionRow" style="background-color:#c6e0b3;height:55px;width:100%;padding-top:10px;">
+                            <span class="instructionLabel"style="font-size: 1vw;" ><u>STEP 2.</u> Enter PM<sub>2.5</sub> concentration to convert to AQI<sup>2</sup></span><br>
+                            
                             <span id="totalPatientsTreatmentValue" class="inputNumberDisplay" style="color:#c6e0b3;">13</span>
+                            <div class="sliderContainer">
+                                <label class="sliderLabel" for="totalPatientsTreatment" style="color:black;" title="Use Arrow Keys For Precise Selection">
+                                   
+                                    <input type="range" id="totalPatientsTreatment" class="slider" min="10" max="225.5" step="1" oninput="calculateNNT()" style="background-color: black;">
+                        
+                                </label>
+                            </div>
                         </div>
-                        <div class="instructionRow" style="background-color: #e1efdb ;height:85px;width:100%;padding-top:10px;">
-                            <span class="instructionLabel" style="font-size: 1.5vw;"><u>STEP 3.</u> Effectiveness of intervention to reduce exposure<sup>3</sup></span><br>
-                            <span class="instructionLabel" style="font-size: 1vw;"><em>(enter a #,  not a proportion; e.g., '35' correctly represents '35%', not '0.35' or '35%'):</em></span>
+                        <div class="instructionRow" style="background-color: #e1efdb ;height:55px;width:100%;padding-top:10px;">
+                            <span class="instructionLabel" style="font-size: 1vw;"><u>STEP 3.</u> Effectiveness of intervention to reduce exposure<sup>3</sup></span><br>
+                           
                             <span id="eventRateControlValue" class="inputNumberDisplay" style="color: #e1efdb;margin-top:50px">15</span>
+                            <div class="sliderContainer">
+                                <label class="sliderLabel" for="eventRateControl" style="color:black; " title="Use Arrow Keys For Precise Selection">
+                                  
+                                    <input type="range" id="eventRateControl" class="slider" min="15" max="50" step="1" oninput="calculateNNT()" style="background-color: black; ">
+                            
+                                </label>
+                            </div>
                         </div>
-                        <div class="instructionRow" style="height:5vh;width:100%">
-                            <span class="instructionLabel" style="float: right;padding-top: 20px;">NNT<sub>1</sub> (day)<sup>4</sup>:</span>
+                        <div class="instructionRow" style="height:1.2vh;width:100%">
+                            <span class="instructionLabel" style="float: right;margin-left:40vw;padding-top: 10px;">NNT<sub>1</sub> (day)<sup>4</sup>:</span>
                         </div>
                     </div>
                 </td>
-                <td style="background-color:#fff2cd;font-size:60px;width: 15%;">
+                <td style="background-color:#fff2cd;font-size:60px;width: 10%;">
                     <div id="numberDisplays">
-                        <div class="inputNumberDisplay" style="color:#006766;font-size:4.5vw;padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 50px;" >
+                        <div class="inputNumberDisplay" style="color:#006766;font-size:2vw;padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 20px;" >
                             <span id="patientsWithEventDisplay" style="float:right;" >1</span>
                         </div>
-                        <div class="inputNumberDisplay" style="color:#006766;font-size:4.5vw; padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 50px;">
-                            <span id="totalPatientsTreatmentDisplay" style="float:right;" >10</span>
+                        <div class="inputNumberDisplay" style="color:#006766;font-size:2vw; padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 20px;">
+                            <span id="totalPatientsTreatmentDisplay" style="float:right;" >13</span>
                         </div>
-                        <div class="inputNumberDisplay" style="color:#006766;font-size:4.5vw;padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 50px; ">
+                        <div class="inputNumberDisplay" style="color:#006766;font-size:2vw;padding-top: 22px;padding-bottom: 20px;border: 2px solid black;height: 20px; ">
                             <span id="eventRateControlDisplay" style="float:right;" >15</span>
                         </div>
                         <div id="nntResult"></div>
                     </div>
                 </td>
                 <td style="background-color:lightgrey;width:40%">
-                    <div id="calculator">
-                        <div class="sliderContainer" style="background-color:#006766;color:white;height:95px;padding-top: 35px; ">
-                            <label class="sliderLabel" for="patientsWithEvent" title = "Use Arrow Keys For Precise Selection";>
-                                <span>0.5</span>
-                                <input type="range" id="patientsWithEvent" class="slider" min="1" max="20" step="1" oninput="calculateNNT()">
-                                <span>20%</span>
-                            </label>
-                        </div>
+                    <div id="Range">
+                        <div class="Range" style="font-size:1em;padding-top: 22px;padding-bottom: 20px;height: 22px;background-color:#006766;color:white;" >
+                            0.5-20 (%)
 
-                        <div class="sliderContainer" style="background-color:#c6e0b3;height:95px;padding-top: 35px; padding-right:30px">
-                            <label class="sliderLabel" for="totalPatientsTreatment" style="color:black;" title = "Use Arrow Keys For Precise Selection">
-                                <span>10</span>
-                                <input type="range" id="totalPatientsTreatment" class="slider" min="10" max="225.5" step="1" oninput="calculateNNT()" style="background-color: black;">
-                                <span>225.5<span style="font-size:1vw;">µg/m<sup>3</sup></span> </span>
-                            </label>
                         </div>
+                        <div class="Range" style="font-size:1em;padding-top: 22px;padding-bottom: 20px;height: 22px; background-color:#c6e0b3 " >
+                            <span >225.5<span style="font-size:1vw;">µg/m<sup>3</sup></span> </span>
+                        </div>
+                        <div class="Range" style="font-size:1em;padding-top: 22px;padding-bottom: 20px;height: 22px;background-color: 
+                        #e1efdb;" >
+                            15-50 (%)
 
-                        <div class="sliderContainer" style="background-color: #e1efdb ;height:95px ;padding-top: 35px; ">
-                            <label class="sliderLabel" for="eventRateControl" style="color:black; " title = "Use Arrow Keys For Precise Selection">
-                                <span>15</span>
-                                <input type="range" id="eventRateControl" class="slider" min="15" max="50" step="1" oninput="calculateNNT()" style="background-color: black; ">
-                                <span>50%</span>
-                            </label>
                         </div>
+                        <div id="nntResult"></div>
                     </div>
                 </td>
             </tr>
         </table>
         <div class="notes" style="background-color:#f2f2f2;">
-            <p><b>Notes:</b></p>
+            <p><b>Notes:</b> <a href="https://www.heart.org/en/professional/quality-improvement/ascvd">ASCVD: Atherosclerotic Cardiovascular Disease</a>, a condition caused by plaque buildup in arterial walls that includes:
+        </p>
+            <ul>
+                <li>Coronary Heart Disease (CHD), such as myocardial infarction, angina, and coronary artery stenosis. 
+                </li>
+                <li>Cerebrovascular disease, such as a transient ischemic attack, ischemic stroke, and carotid artery stenosis.  
+                </li>
+                <li>Peripheral artery disease, such as claudication. 
+                </li>
+                <li>Aortic atherosclerotic disease, such as abdominal aortic aneurysm and descending thoracic aneurysm.
+                </li>
+              </ul>
             <p><b>1. To calculate 10-year ASCVD risk visit ACC website:</b></p>
             <p><a href="https://tools.acc.org/ldl/ascvd_risk_estimator/index.html#!/calulate/estimator/">https://tools.acc.org/ldl/ascvd_risk_estimator/index.html#!/calulate/estimator/</a></p>
             <p><b>2. To convert PM<sub>2.5</sub> to AQI visit EPA airnow website (must be >12 µg/m<sup>3</sup>):</b></p>
             <p><a href="https://www.airnow.gov/aqi/aqi-calculator-concentration/">https://www.airnow.gov/aqi/aqi-calculator-concentration/</a></p>
             <p><b>3. AQI activity guidelines for the general adult population (without heart or lung disease):</b><span style="margin-left:11.5vw;"><b>Recommendation</b></span><span style="margin-left:13vw;"><b>Estimated exposure reduction (range)</b></span></p>
             <p>Unhealthy (AQI 151-200; PM<sub>2.5</sub>: 55.5 – 125.4 µg/m<sup>3</sup>)<span style="margin-left:25.7vw;">↓ Prolonged/heavy exertion outdoors</span><span style="margin-left:7vw;">15% (10-20%)</span></p>
-            <p>Very unhealthy (AQI 201-300; PM<sub>2.5</sub>: 125.5 – 225.4  µg/m<sup>3</sup>)<span style="margin-left:23.7vw;">Avoid prolonged/heavy exertion outdoors</span><span style="margin-left:5.6vw;">25% (20-30%)</span><a href="https://phoenix.wayne.edu/" target="_blank"><img src="https://i.ibb.co/tcqksyV/phxinhouse.png"></a></p>
-            <p>Hazardous (AQI 301-500; PM<sub>2.5</sub>: 225.5+  µg/m<sup>3</sup>)<span style="margin-left:25.6vw;">Avoid all physical activities outdoors</span><span style="margin-left:7.3vw;">35% (30-40%)</span></p></p>
+            <p>Very unhealthy (AQI 201-300; PM<sub>2.5</sub>: 125.5 – 225.4  µg/m<sup>3</sup>)<span style="margin-left:23.6vw;">Avoid prolonged/heavy exertion outdoors</span><span style="margin-left:5.6vw;">25% (20-30%)</span></p>
+            <p>Hazardous (AQI 301-500; PM<sub>2.5</sub>: 225.5+  µg/m<sup>3</sup>)<span style="margin-left:27.2vw;">Avoid all physical activities outdoors</span><span style="margin-left:7.3vw;">35% (30-40%)</span></p></p>
             <p>Wildfires and severe events (e.g., "hazardous" AQI levels)<span style="margin-left:24vw;">Remain indoors/keep activities low</span><span style="margin-left:7.8vw;">50% (40-60%)</span></p></p>
             <p><b>4. Number needed to treat per day to prevent 1 ASCVD event (fatal or nonfatal MI or stroke)</b></p>
-            <p><b>5. On February 7, 2024, the U.S. Environmental Protection Agency (EPA) announced a final rule to strengthen the nation’s National Ambient Air Quality Standards (NAAQS) for fine particle pollution, also known as fine particulate matter (PM<sub>2.5</sub>) or soot.  </b></p>
-            <p><b>EPA is setting the level of the primary (health-based) annual PM<sub>2.5</sub> standard at 9.0 micrograms per cubic meter µg/m<sup>3</sup> to provide increased public health protection, consistent with the available health science.</b></p>
+            <p><b>5. Note: </b> On February 7, 2024, the U.S. Environmental Protection Agency (EPA) announced a final rule to strengthen the nation’s National Ambient Air Quality Standards (NAAQS) for fine particle pollution, also known as fine particulate matter (PM2.5) or soot.</p>
+            <p>EPA is setting the level of the primary (health-based) annual PM2.5 standard at 9.0 micrograms per cubic meter (µg/m3) to provide increased public health protection, consistent with the availablehealth science. </p>
             <button class="back-btn" onclick="goBack()"><b>BACK</b></button>
     </div>
     </div>

@@ -137,7 +137,7 @@
             -webkit-appearance: none;
             position: absolute;
             left:65vw;
-            margin-top: 1.3vw;
+            margin-top: .8vw;
             height:.3vw;
         }
            
@@ -272,7 +272,7 @@
                         (1-20%)
                         <div class="sliderContainer">
                             <label class="sliderLabel" for="patientsWithEvent" title="Use Arrow Keys For Precise Selection">
-                                <input type="range" id="patientsWithEvent" class="slider" min="1" max="20" step="1" oninput="calculateNNT()"><span style="margin-left:14vw;font-size:4vw;margin-bottom:.5vw;" title="People with pre-existing ASCVD should select '20%' for Step 3">*</span>
+                                <input type="range" id="patientsWithEvent" class="slider" min="1" max="20" step="1" oninput="calculateNNT()"><span style="margin-left:14vw;font-size:4vw;" title="People with pre-existing ASCVD should select '20%' for Step 3">*</span>
                                 
                             </label>
                         </div>
@@ -337,7 +337,7 @@
                                 <span >10-500<span style="font-size:1vw;">(µg/m<sup>3</sup>)</span> </span>
                                 <span id="totalPatientsTreatmentValue2" class="inputNumberDisplay" style="color:#c6e0b3;">13</span>
                                 <div class="sliderContainer2">
-                                    <label class="sliderLabel" for="totalPatientsTreatment2" style="color:black;" title="Use Arrow Keys For Precise Selection">
+                                    <label class="sliderLabel" for="totalPatientsTreatment2" style="color:black;margin-top:.5vw;" title="Use Arrow Keys For Precise Selection">
                                        
                                         <input type="range" id="totalPatientsTreatment2" class="slider2" min="10" max="500" step="1" oninput="calculateNNT2()" style="background-color: black;">
                             
@@ -348,7 +348,7 @@
                                 15-50 (%)
                                 <span id="eventRateControlValue2" class="inputNumberDisplay" style="color: #e1efdb;margin-top:50px">15</span>
                                 <div class="sliderContainer2" style="width:10%">
-                                    <label class="sliderLabel" for="eventRateControl2" style="color:black; " title="Use Arrow Keys For Precise Selection">
+                                    <label class="sliderLabel" for="eventRateControl2" style="color:black;margin-top:.5vw; " title="Use Arrow Keys For Precise Selection">
                                       
                                         <input type="range" id="eventRateControl2" class="slider2" min="15" max="50" step="1" oninput="calculateNNT2()" style="background-color: black; ">
                                 
@@ -387,9 +387,10 @@
                     </li>
                   </ul>
                 <p>COPD: Chronic Obstructive Pulmonary Disease.</p>
-               <p><b><a href="https://tools.acc.org/ldl/ascvd_risk_estimator/index.html#!/calulate/estimator/">1. To calculate 10-year ASCVD risk visit ACC website:</b></a></p>
+                <p><b><a href="https://tools.acc.org/ldl/ascvd_risk_estimator/index.html#!/calulate/estimator/">1. To calculate 10-year ASCVD risk visit ACC website:</b></a></p>
                 <p>*People with pre-existing ASCVD should select '20%' for Step 3</p>
                 <p><b><a href="https://www.airnow.gov/aqi/aqi-calculator-concentration/">2. To convert AQI for PM<sub>2.5</sub> to PM<sub>2.5</sub> concentration visit EPA airnow website (must be >9 µg/m<sup>3</sup>)</a></b></p>
+                
                 <p><b>3. AQI activity guidelines</b><span style="margin-left:14.4vw;"><b> Gen pub Recommendation</b></span><span style="margin-left:5vw;"><b>Gen pub exposure reduction (range)</b></span><span style="margin-left:4vw"><b>ASCVD/pulm pt Recommendation</b></span><span style="margin-left:4vw;"><b> ASCVD/pulm dz exposure reduction(range)</b></span></p>
                 <p>Unhealthy for sensitive groups (patients with ASCVD or pulm dz)<span style="margin-left:2vw;">NA</span><span style="margin-left:13.8vw;">NA</span><span style="margin-left:15.8vw;">↓ Prolonged/heavy exertion outdoors</span><span style="margin-left:3.8vw;">15% (10-20%)</span>
                 <p>Unhealthy (AQI 151-200; PM<sub>2.5</sub>: 55.5 – 125.4 µg/m<sup>3</sup>)<span style="margin-left:5.7vw;">↓ Prolonged/heavy exertion outdoors</span><span style="margin-left:2.5vw;">15% (10-20%)</span><span style="margin-left:12.2vw;">Avoid prolonged/heavy exertion outdoors</span><span style="margin-left:2.5vw;">25% (20-30%)</span></p>
